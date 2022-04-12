@@ -11,7 +11,8 @@ class ProSliverAppBar extends StatelessWidget {
     required this.minHeight,
     required this.maxHeight,
     this.elevation = 0.0,
-    this.borderRadius = 0.0
+    this.borderRadius = 0.0,
+    this.backgroundColor
   }) : super(key: key);
 
   final bool pinned;
@@ -20,6 +21,7 @@ class ProSliverAppBar extends StatelessWidget {
   final double maxHeight;
   final double elevation;
   final double borderRadius;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,8 @@ class ProSliverAppBar extends StatelessWidget {
         minHeight: minHeight, 
         maxHeight: maxHeight,
         elevation: elevation,
-        borderRadius: borderRadius
+        borderRadius: borderRadius,
+        backgroundColor: backgroundColor
       )
     );
   }
