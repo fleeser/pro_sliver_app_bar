@@ -1,7 +1,4 @@
 library pro_sliver_app_bar;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export './src/pro_sliver_app_bar.dart';
+export './src/pro_sliver_app_bar_delegate.dart';
