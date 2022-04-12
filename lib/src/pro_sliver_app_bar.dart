@@ -9,13 +9,15 @@ class ProSliverAppBar extends StatelessWidget {
     this.pinned = true,
     this.floating = false,
     required this.minHeight,
-    required this.maxHeight
+    required this.maxHeight,
+    this.elevation = 0.0
   }) : super(key: key);
 
   final bool pinned;
   final bool floating;
   final double minHeight;
   final double maxHeight;
+  final double elevation;
 
   @override
   Widget build(BuildContext context) {

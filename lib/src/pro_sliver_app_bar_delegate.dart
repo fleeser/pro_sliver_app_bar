@@ -4,15 +4,18 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
   const ProSliverAppBarDelegate({
     required this.minHeight,
-    required this.maxHeight
+    required this.maxHeight,
+    this.elevation = 0.0
   });
 
   final double minHeight;
   final double maxHeight;
+  final double elevation;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Material(
+      elevation: elevation,
       child: Stack(
         fit: StackFit.expand
       )
