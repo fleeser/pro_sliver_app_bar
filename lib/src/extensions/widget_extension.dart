@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:pro_sliver_app_bar/src/background/pro_gradient_background.dart';
 import 'package:pro_sliver_app_bar/src/background/pro_image_background.dart';
-import 'package:pro_sliver_app_bar/src/buttons/pro_app_bar_button.dart';
+import 'package:pro_sliver_app_bar/src/title/pro_static_title.dart';
 import 'package:pro_sliver_app_bar/src/buttons/pro_leading.dart';
 import 'package:pro_sliver_app_bar/src/buttons/pro_trailing.dart';
+import 'package:pro_sliver_app_bar/src/buttons/pro_app_bar_button.dart';
 
 extension WidgetExtension on Widget {
   
@@ -16,6 +17,10 @@ extension WidgetExtension on Widget {
 
     if (this is ProGradientBackground) {
       return ProGradientBackgroundWidget(this as ProGradientBackground, progress);
+    }
+
+    if (this is ProStaticTitle) {
+      return ProStaticTitleWidget(this as ProStaticTitle, progress);
     }
 
     if (this is ProLeading) {

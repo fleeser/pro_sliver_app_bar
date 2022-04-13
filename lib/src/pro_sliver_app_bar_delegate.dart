@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:pro_sliver_app_bar/src/buttons/pro_leading.dart';
 import 'package:pro_sliver_app_bar/src/buttons/pro_trailing.dart';
 import 'package:pro_sliver_app_bar/src/extensions/widget_extension.dart';
+import 'package:pro_sliver_app_bar/src/title/pro_static_title.dart';
 
 class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
@@ -16,7 +17,8 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     this.backgroundColor,
     this.background,
     this.leading,
-    this.trailing
+    this.trailing,
+    this.title
   });
 
   final double collapsedHeight;
@@ -27,6 +29,7 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final Widget? background;
   final ProLeading? leading;
   final ProTrailing? trailing;
+  final ProStaticTitle? title;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -51,7 +54,7 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             child: Row(
               children: [
                 if (leading != null) leading!.transform(progress),
-                const Expanded(child: SizedBox()),
+                Expanded(child: title?.transform(progress) ?? const SizedBox()),
                 if (trailing != null) trailing!.transform(progress)
               ]
             )
