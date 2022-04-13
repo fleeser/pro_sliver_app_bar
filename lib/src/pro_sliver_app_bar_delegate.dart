@@ -50,7 +50,7 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
         fit: StackFit.expand,
         children: [
           if (background != null) background!.transform(progress),
-          Positioned(
+          if (leading != null || trailing != null || center != null) Positioned(
             top: devicePadding.top,
             height: kToolbarHeight,
             left: devicePadding.left,
@@ -84,6 +84,13 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                 )
               ]
             )
+          ),
+          if (dynamic != null) Positioned(
+            bottom: dynamic!.bottomPadding,
+            height: dynamic!.getHeight(progress),
+            left: devicePadding.left,
+            width: deviceSize.width - devicePadding.left - devicePadding.right,
+            child: dynamic!.transform(progress, leading != null && leading!.buttons.isNotEmpty ? leading!.paddingToEdge + leading!.buttons.length * (kToolbarHeight - 10.0 + leading!.paddingBetween) - leading!.paddingBetween : 0.0, trailing != null && trailing!.buttons.isNotEmpty ? trailing!.paddingToEdge + trailing!.buttons.length * (kToolbarHeight - 10.0 + trailing!.paddingBetween) - trailing!.paddingBetween : 0.0 )
           )
         ]
       )
