@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:pro_sliver_app_bar/src/buttons/pro_leading.dart';
+import 'package:pro_sliver_app_bar/src/buttons/pro_trailing.dart';
 import 'package:pro_sliver_app_bar/src/pro_sliver_app_bar_delegate.dart';
 
 class ProSliverAppBar extends StatelessWidget {
@@ -13,7 +15,9 @@ class ProSliverAppBar extends StatelessWidget {
     this.elevation = 0.0,
     this.borderRadius = 0.0,
     this.backgroundColor,
-    this.background
+    this.background,
+    this.leading,
+    this.trailing
   }) : super(key: key);
 
   final bool pinned;
@@ -24,6 +28,8 @@ class ProSliverAppBar extends StatelessWidget {
   final double borderRadius;
   final Color? backgroundColor;
   final Widget? background;
+  final ProLeading? leading;
+  final ProTrailing? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +42,9 @@ class ProSliverAppBar extends StatelessWidget {
         elevation: elevation,
         borderRadius: borderRadius,
         backgroundColor: backgroundColor,
-        background: background
+        background: background,
+        leading: leading,
+        trailing: trailing
       )
     );
   }
