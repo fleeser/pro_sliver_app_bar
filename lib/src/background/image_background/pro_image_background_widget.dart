@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:pro_sliver_app_bar/src/background/image_background/pro_image_background.dart';
+
 class ProImageBackgroundWidget extends StatelessWidget {
 
   const ProImageBackgroundWidget(
@@ -24,24 +26,5 @@ class ProImageBackgroundWidget extends StatelessWidget {
         )
       )
     );
-  }
-}
-
-class ProImageBackground extends Widget {
-
-  const ProImageBackground({
-    Key? key,
-    this.image,
-    this.fit = BoxFit.cover,
-    this.animateToBackgroundColor = true
-  }) : super(key: key);
-
-  final ImageProvider? image;
-  final BoxFit fit;
-  final bool animateToBackgroundColor;
-
-  @override
-  Element createElement() {
-    throw UnimplementedError();
   }
 }

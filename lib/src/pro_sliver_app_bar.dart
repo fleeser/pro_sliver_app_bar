@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:pro_sliver_app_bar/src/buttons/pro_leading.dart';
-import 'package:pro_sliver_app_bar/src/buttons/pro_trailing.dart';
+import 'package:pro_sliver_app_bar/src/app_bar_buttons/pro_app_bar_buttons.dart';
+import 'package:pro_sliver_app_bar/src/background/pro_background.dart';
+import 'package:pro_sliver_app_bar/src/center/pro_center.dart';
+import 'package:pro_sliver_app_bar/src/dynamic/pro_dynamic.dart';
 import 'package:pro_sliver_app_bar/src/pro_sliver_app_bar_delegate.dart';
-import 'package:pro_sliver_app_bar/src/title/pro_static_title.dart';
 
 class ProSliverAppBar extends StatelessWidget {
 
@@ -19,7 +20,8 @@ class ProSliverAppBar extends StatelessWidget {
     this.background,
     this.leading,
     this.trailing,
-    this.title
+    this.center,
+    this.dynamic
   }) : super(key: key);
 
   final bool pinned;
@@ -29,10 +31,11 @@ class ProSliverAppBar extends StatelessWidget {
   final double elevation;
   final double borderRadius;
   final Color? backgroundColor;
-  final Widget? background;
-  final ProLeading? leading;
-  final ProTrailing? trailing;
-  final ProStaticTitle? title;
+  final ProBackground? background;
+  final ProAppBarButtons? leading;
+  final ProAppBarButtons? trailing;
+  final ProCenter? center;
+  final ProDynamic? dynamic;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,8 @@ class ProSliverAppBar extends StatelessWidget {
         background: background,
         leading: leading,
         trailing: trailing,
-        title: title
+        center: center,
+        dynamic: dynamic
       )
     );
   }

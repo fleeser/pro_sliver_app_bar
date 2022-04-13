@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ProGradientBackgroundWidget extends StatelessWidget {
+import 'package:pro_sliver_app_bar/src/background/gradient_background/pro_gradient_background.dart';
 
+class ProGradientBackgroundWidget extends StatelessWidget {
+  
   const ProGradientBackgroundWidget(
     this.data,
     this.progress, { 
@@ -21,22 +23,5 @@ class ProGradientBackgroundWidget extends StatelessWidget {
         )
       )
     );
-  }
-}
-
-class ProGradientBackground extends Widget {
-
-  const ProGradientBackground({
-    Key? key,
-    this.gradient,
-    this.animateToBackgroundColor = true
-  }) : super(key: key);
-
-  final Gradient? gradient;
-  final bool animateToBackgroundColor;
-
-  @override
-  Element createElement() {
-    throw UnimplementedError();
   }
 }
