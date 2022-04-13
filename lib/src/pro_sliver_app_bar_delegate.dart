@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:pro_sliver_app_bar/src/buttons/pro_leading.dart';
 import 'package:pro_sliver_app_bar/src/buttons/pro_trailing.dart';
 import 'package:pro_sliver_app_bar/src/extensions/widget_extension.dart';
+import 'package:pro_sliver_app_bar/src/helpers/app_bar_buttons_size.dart';
 import 'package:pro_sliver_app_bar/src/title/pro_static_title.dart';
 
 class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
@@ -53,9 +54,15 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             width: deviceSize.width - devicePadding.left - devicePadding.right,
             child: Row(
               children: [
-                if (leading != null) leading!.transform(progress),
+                if (leading != null) SizedBox(
+                  width: title != null && title!.textAlign == TextAlign.center ? ((leading != null && (leading!.children?.isNotEmpty ?? false)) || (trailing != null && (trailing!.children?.isNotEmpty ?? false))) ? max(leading!.paddingToStart + sizeOfButtons(leading!.children) + ((leading!.children?.length ?? 0) - 1) * leading!.paddingBetweenChildren, trailing!.paddingToEnd + sizeOfButtons(trailing!.children) + ((trailing!.children?.length ?? 0) - 1) * trailing!.paddingBetweenChildren) : 0.0 : null,
+                  child: leading!.transform(progress),
+                ),
                 Expanded(child: title?.transform(progress) ?? const SizedBox()),
-                if (trailing != null) trailing!.transform(progress)
+                if (trailing != null) SizedBox(
+                  width: title != null && title!.textAlign == TextAlign.center ? ((leading != null && (leading!.children?.isNotEmpty ?? false)) || (trailing != null && (trailing!.children?.isNotEmpty ?? false))) ? max(leading!.paddingToStart + sizeOfButtons(leading!.children) + ((leading!.children?.length ?? 0) - 1) * leading!.paddingBetweenChildren, trailing!.paddingToEnd + sizeOfButtons(trailing!.children) + ((trailing!.children?.length ?? 0) - 1) * trailing!.paddingBetweenChildren) : 0.0 : null,
+                  child: trailing!.transform(progress)
+                )
               ]
             )
           )
