@@ -7,16 +7,16 @@ import 'package:pro_sliver_app_bar/src/extensions/widget_extension.dart';
 class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
   const ProSliverAppBarDelegate({
-    required this.minHeight,
-    required this.maxHeight,
+    required this.collapsedHeight,
+    required this.expandedHeight,
     this.elevation = 0.0,
     this.borderRadius = 0.0,
     this.backgroundColor,
     this.background
   });
 
-  final double minHeight;
-  final double maxHeight;
+  final double collapsedHeight;
+  final double expandedHeight;
   final double elevation;
   final double borderRadius;
   final Color? backgroundColor;
@@ -25,14 +25,13 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     
-    final progress = min(shrinkOffset, maxExtent - minExtent) / (maxExtent - minExtent);
+    final double progress = min(shrinkOffset, maxExtent - minExtent) / (maxExtent - minExtent);
     
     return Material(
       elevation: elevation,
       color: backgroundColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(bottom: Radius.circular(borderRadius))),
       child: Stack(
-        fit: StackFit.expand,
         children: [
           if (background != null) background!.transform(progress)
         ]
@@ -41,10 +40,10 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => maxHeight;
+  double get maxExtent => expandedHeight;
 
   @override
-  double get minExtent => minHeight;
+  double get minExtent => collapsedHeight;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => true;

@@ -8,8 +8,8 @@ class ProSliverAppBar extends StatelessWidget {
     Key? key,
     this.pinned = true,
     this.floating = false,
-    required this.minHeight,
-    required this.maxHeight,
+    required this.collapsedHeight,
+    required this.expandedHeight,
     this.elevation = 0.0,
     this.borderRadius = 0.0,
     this.backgroundColor,
@@ -18,8 +18,8 @@ class ProSliverAppBar extends StatelessWidget {
 
   final bool pinned;
   final bool floating;
-  final double minHeight;
-  final double maxHeight;
+  final double collapsedHeight;
+  final double expandedHeight;
   final double elevation;
   final double borderRadius;
   final Color? backgroundColor;
@@ -31,8 +31,8 @@ class ProSliverAppBar extends StatelessWidget {
       pinned: pinned,
       floating: floating,
       delegate: ProSliverAppBarDelegate(
-        minHeight: minHeight, 
-        maxHeight: maxHeight,
+        collapsedHeight: collapsedHeight, 
+        expandedHeight: expandedHeight,
         elevation: elevation,
         borderRadius: borderRadius,
         backgroundColor: backgroundColor,
