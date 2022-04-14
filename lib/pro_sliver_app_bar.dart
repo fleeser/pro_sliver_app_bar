@@ -13,3 +13,6 @@ export './src/app_bar_buttons/circular_app_bar_button/pro_circular_app_bar_butto
 export './src/center/center_title/pro_center_title.dart';
 
 export './src/dynamic/dynamic_title/pro_dynamic_title.dart';
+export './src/dynamic/dynamic_image_title/pro_dynamic_image_title.dart';
+
+export './src/floating/circular_floating_button/pro_circular_floating_button.dart';

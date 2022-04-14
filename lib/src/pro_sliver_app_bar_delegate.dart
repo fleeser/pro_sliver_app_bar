@@ -6,6 +6,7 @@ import 'package:pro_sliver_app_bar/src/app_bar_buttons/pro_app_bar_buttons.dart'
 import 'package:pro_sliver_app_bar/src/background/pro_background.dart';
 import 'package:pro_sliver_app_bar/src/center/pro_center.dart';
 import 'package:pro_sliver_app_bar/src/dynamic/pro_dynamic.dart';
+import 'package:pro_sliver_app_bar/src/floating/pro_floating.dart';
 
 class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
@@ -19,7 +20,8 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     this.leading,
     this.trailing,
     this.center,
-    this.dynamic
+    this.dynamic,
+    this.floating
   });
 
   final double collapsedHeight;
@@ -32,6 +34,7 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final ProAppBarButtons? trailing;
   final ProCenter? center;
   final ProDynamic? dynamic;
+  final ProFloating? floating;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -86,7 +89,7 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             )
           ),
           if (dynamic != null) Positioned(
-            bottom: dynamic!.bottomPadding,
+            bottom: 0.0,
             height: dynamic!.getHeight(progress),
             left: devicePadding.left,
             width: deviceSize.width - devicePadding.left - devicePadding.right,

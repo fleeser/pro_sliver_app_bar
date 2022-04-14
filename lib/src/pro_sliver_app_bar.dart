@@ -4,6 +4,7 @@ import 'package:pro_sliver_app_bar/src/app_bar_buttons/pro_app_bar_buttons.dart'
 import 'package:pro_sliver_app_bar/src/background/pro_background.dart';
 import 'package:pro_sliver_app_bar/src/center/pro_center.dart';
 import 'package:pro_sliver_app_bar/src/dynamic/pro_dynamic.dart';
+import 'package:pro_sliver_app_bar/src/floating/pro_floating.dart';
 import 'package:pro_sliver_app_bar/src/pro_sliver_app_bar_delegate.dart';
 
 class ProSliverAppBar extends StatelessWidget {
@@ -11,7 +12,7 @@ class ProSliverAppBar extends StatelessWidget {
   const ProSliverAppBar({ 
     Key? key,
     this.pinned = true,
-    this.floating = false,
+    this.isFloating = false,
     required this.collapsedHeight,
     required this.expandedHeight,
     this.elevation = 0.0,
@@ -21,11 +22,12 @@ class ProSliverAppBar extends StatelessWidget {
     this.leading,
     this.trailing,
     this.center,
-    this.dynamic
+    this.dynamic,
+    this.floating
   }) : super(key: key);
 
   final bool pinned;
-  final bool floating;
+  final bool isFloating;
   final double collapsedHeight;
   final double expandedHeight;
   final double elevation;
@@ -36,12 +38,13 @@ class ProSliverAppBar extends StatelessWidget {
   final ProAppBarButtons? trailing;
   final ProCenter? center;
   final ProDynamic? dynamic;
+  final ProFloating? floating;
 
   @override
   Widget build(BuildContext context) {
     return SliverPersistentHeader(
       pinned: pinned,
-      floating: floating,
+      floating: isFloating,
       delegate: ProSliverAppBarDelegate(
         collapsedHeight: collapsedHeight, 
         expandedHeight: expandedHeight,
@@ -52,7 +55,8 @@ class ProSliverAppBar extends StatelessWidget {
         leading: leading,
         trailing: trailing,
         center: center,
-        dynamic: dynamic
+        dynamic: dynamic,
+        floating: floating
       )
     );
   }

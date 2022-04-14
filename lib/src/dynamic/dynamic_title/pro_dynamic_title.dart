@@ -22,16 +22,13 @@ class ProDynamicTitle extends ProDynamic {
     this.expandedPadding = 12.0,
     this.collapsedPadding = 12.0,
     this.expandedPaddingToBottom = 0.0
-  }) : super(
-    key: key,
-    bottomPadding: expandedPaddingToBottom
-  );
+  }) : super(key: key);
 
   final String title;
   final double expandedFontSize;
   final double collapsedFontSize;
-  final Color? expandedColor;
-  final Color? collapsedColor;
+  final Color expandedColor;
+  final Color collapsedColor;
   final FontWeight expandedFontWeight;
   final FontWeight collapsedFontWeight;
   final ProAlignment expandedAlignment;

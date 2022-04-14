@@ -1,8 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 double calculateValue(double expanded, double collapsed, double progress) {
   if (expanded == collapsed) return expanded;
-  return expanded - (expanded - collapsed) * progress;
+  return lerpDouble(expanded, collapsed, progress)!;
 }
 
 Color? calculateColor(Color? expanded, Color? collapsed, double progress) {
