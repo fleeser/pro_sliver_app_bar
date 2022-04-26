@@ -36,6 +36,7 @@ class ProDynamicTitleWidget extends StatelessWidget {
           data.title,
           maxLines: 1,
           style: TextStyle(
+            fontFamily: data.fontFamily,
             fontSize: calculateValue(data.expandedFontSize, data.collapsedFontSize, progress),
             fontWeight: caluclateFontWeight(data.expandedFontWeight, data.collapsedFontWeight, progress),
             height: 1.0,

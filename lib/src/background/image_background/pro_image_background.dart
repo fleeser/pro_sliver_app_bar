@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 
 import 'package:pro_sliver_app_bar/src/background/image_background/pro_image_background_widget.dart';
 import 'package:pro_sliver_app_bar/src/background/pro_background.dart';
+import 'package:pro_sliver_app_bar/src/image/pro_image.dart';
 
 class ProImageBackground extends ProBackground {
   
   const ProImageBackground({ 
     Key? key,
-    this.image,
-    this.fit = BoxFit.cover,
+    required this.image,
+    this.backgroundColor,
     this.animateToBackgroundColor = true
   }) : super(key: key);
 
-  final ImageProvider? image;
-  final BoxFit fit;
+  final ProImage image;
+  final Color? backgroundColor;
   final bool animateToBackgroundColor;
 
   @override

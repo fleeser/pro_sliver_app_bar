@@ -7,17 +7,20 @@ import 'package:pro_sliver_app_bar/src/dynamic/dynamic_image_title/pro_dynamic_i
 import 'package:pro_sliver_app_bar/src/dynamic/pro_dynamic.dart';
 import 'package:pro_sliver_app_bar/src/enums/pro_alignment.dart';
 import 'package:pro_sliver_app_bar/src/helpers/calculation_helpers.dart';
+import 'package:pro_sliver_app_bar/src/image/pro_image.dart';
 
 class ProDynamicImageTitle extends ProDynamic {
   
   const ProDynamicImageTitle({ 
     Key? key,
     required this.title,
+    this.fontFamily,
     required this.image,
     this.expandedImageSize = 50.0,
     this.collapsedImageSize = kToolbarHeight - 10.0,
     this.expandedPaddingToBottom = 0.0,
     this.expandedPadding = 12.0,
+    this.collapsedPadding = 12.0,
     this.expandedAlignment = ProAlignment.left,
     this.collapsedAlignment = ProAlignment.center,
     this.expandedFontSize = kExpandedTitleSize,
@@ -31,7 +34,8 @@ class ProDynamicImageTitle extends ProDynamic {
   }) : super(key: key);
 
   final String title;
-  final ImageProvider image;
+  final String? fontFamily;
+  final ProImage image;
   final double expandedImageSize;
   final double collapsedImageSize;
   final double expandedPaddingToBottom;
@@ -40,6 +44,7 @@ class ProDynamicImageTitle extends ProDynamic {
   final double expandedFontSize;
   final double collapsedFontSize;
   final double expandedPadding;
+  final double collapsedPadding;
   final ProAlignment expandedAlignment;
   final ProAlignment collapsedAlignment;
   final double paddingBetweenImageAndTitle;

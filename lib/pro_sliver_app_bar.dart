@@ -14,5 +14,10 @@ export './src/center/center_title/pro_center_title.dart';
 
 export './src/dynamic/dynamic_title/pro_dynamic_title.dart';
 export './src/dynamic/dynamic_image_title/pro_dynamic_image_title.dart';
+export './src/dynamic/dynamic_text_field/pro_dynamic_text_field.dart';
 
 export './src/floating/circular_floating_button/pro_circular_floating_button.dart';
+
+export './src/image/pro_network_image/pro_network_image.dart';
+export './src/image/pro_future_network_image/pro_future_network_image.dart';
+export './src/image/pro_file_image/pro_file_image.dart';

@@ -18,12 +18,9 @@ class ProImageBackgroundWidget extends StatelessWidget {
     return Opacity(
       opacity: data.animateToBackgroundColor ? 1.0 - progress : 1.0,
       child: Container(
-        decoration: BoxDecoration(
-          image: data.image != null ? DecorationImage(
-            image: data.image!,
-            fit: data.fit
-          ) : null
-        )
+        alignment: Alignment.center,
+        color: data.backgroundColor,
+        child: data.image.transform(progress)
       )
     );
   }

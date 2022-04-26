@@ -27,30 +27,26 @@ class ProDynamicImageTitleWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         bottom: calculateValue(data.expandedPaddingToBottom, (kToolbarHeight - max(data.collapsedFontSize, data.collapsedImageSize)) / 2.0, progress),
-        left: calculateValue(data.expandedPadding, data.expandedPadding + (data.collapsedAlignment == ProAlignment.center ? max(leftAppBarButtonInset, rightBarButtonInset) : leftAppBarButtonInset), progress),
-        right: calculateValue(data.expandedPadding, data.expandedPadding + (data.collapsedAlignment == ProAlignment.center ? max(leftAppBarButtonInset, rightBarButtonInset) : leftAppBarButtonInset), progress)
+        left: calculateValue(data.expandedPadding, data.collapsedPadding + (data.collapsedAlignment == ProAlignment.center ? max(leftAppBarButtonInset, rightBarButtonInset) : leftAppBarButtonInset), progress),
+        right: calculateValue(data.expandedPadding, data.collapsedPadding + (data.collapsedAlignment == ProAlignment.center ? max(leftAppBarButtonInset, rightBarButtonInset) : leftAppBarButtonInset), progress)
       ),
       child: Align(
         alignment: calculateAlignment(data.expandedAlignment.alignment, data.collapsedAlignment.alignment, progress),
         child: Row(
           children: [
-            if (!data.showImageOnlyWhenCollapsed || progress == 1.0) Container(
-              width: calculateValue(data.expandedImageSize, data.collapsedImageSize, progress),
-              height: calculateValue(data.expandedImageSize, data.collapsedImageSize, progress),
-              decoration: const BoxDecoration(
-                color: Colors.orange,
-                shape: BoxShape.circle
-              )
-            ),
+            if (!data.showImageOnlyWhenCollapsed || progress == 1.0) data.image.transform(progress, size: calculateValue(data.expandedImageSize, data.collapsedImageSize, progress), isCircle: true),
             SizedBox(width: data.showImageOnlyWhenCollapsed ? progress == 1.0 ? data.paddingBetweenImageAndTitle : calculateValue(0.0, data.collapsedImageSize + data.paddingBetweenImageAndTitle, progress) : data.paddingBetweenImageAndTitle),
-            Text(
-              data.title,
-              maxLines: 1,
-              style: TextStyle(
-                fontSize: calculateValue(data.expandedFontSize, data.collapsedFontSize, progress),
-                fontWeight: caluclateFontWeight(data.expandedFontWeight, data.collapsedFontWeight, progress),
-                height: 1.0,
-                color: calculateColor(data.expandedColor, data.collapsedColor, progress)
+            Expanded(
+              child: Text(
+                data.title,
+                maxLines: 1,
+                style: TextStyle(
+                  fontFamily: data.fontFamily,
+                  fontSize: calculateValue(data.expandedFontSize, data.collapsedFontSize, progress),
+                  fontWeight: caluclateFontWeight(data.expandedFontWeight, data.collapsedFontWeight, progress),
+                  height: 1.0,
+                  color: calculateColor(data.expandedColor, data.collapsedColor, progress)
+                )
               )
             )
           ]

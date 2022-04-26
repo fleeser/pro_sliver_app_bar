@@ -93,7 +93,7 @@ class ProSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             height: dynamic!.getHeight(progress),
             left: devicePadding.left,
             width: deviceSize.width - devicePadding.left - devicePadding.right,
-            child: dynamic!.transform(progress, leading != null && leading!.buttons.isNotEmpty ? leading!.paddingToEdge + leading!.buttons.length * (kToolbarHeight - 10.0 + leading!.paddingBetween) - leading!.paddingBetween : 0.0, trailing != null && trailing!.buttons.isNotEmpty ? trailing!.paddingToEdge + trailing!.buttons.length * (kToolbarHeight - 10.0 + trailing!.paddingBetween) - trailing!.paddingBetween : 0.0 )
+            child: dynamic!.transform(progress, leading != null && leading!.buttons.isNotEmpty ? leading!.paddingToEdge + leading!.buttons.length * (kToolbarHeight - 10.0 + leading!.paddingBetween) - leading!.paddingBetween : 0.0, trailing != null && trailing!.buttons.isNotEmpty ? trailing!.paddingToEdge + trailing!.buttons.length * (kToolbarHeight - 10.0 + trailing!.paddingBetween) - trailing!.paddingBetween : 0.0)
           )
         ]
       )

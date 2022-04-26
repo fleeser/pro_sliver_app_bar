@@ -11,6 +11,7 @@ class ProDynamicTitle extends ProDynamic {
   const ProDynamicTitle({ 
     Key? key,
     required this.title,
+    this.fontFamily,
     this.expandedFontSize = kExpandedTitleSize,
     this.collapsedFontSize = kCollapsedTitleSize,
     this.expandedColor = Colors.black,
@@ -25,6 +26,7 @@ class ProDynamicTitle extends ProDynamic {
   }) : super(key: key);
 
   final String title;
+  final String? fontFamily;
   final double expandedFontSize;
   final double collapsedFontSize;
   final Color expandedColor;
