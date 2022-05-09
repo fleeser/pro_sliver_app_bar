@@ -26,7 +26,7 @@ class ProDynamicImageTitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        bottom: calculateValue(data.expandedPaddingToBottom, (kToolbarHeight - max(data.collapsedFontSize, data.collapsedImageSize)) / 2.0, progress),
+        bottom: calculateValue(data.friendsWidget != null ? 24.0 - ((kToolbarHeight - 10.0) - data.expandedFontSize) / 2.0 : data.expandedPaddingToBottom, data.friendsWidget != null ? 5.0 : (kToolbarHeight - max(data.collapsedFontSize, data.collapsedImageSize)) / 2.0, progress),
         left: calculateValue(data.expandedPadding, data.collapsedPadding + (data.collapsedAlignment == ProAlignment.center ? max(leftAppBarButtonInset, rightBarButtonInset) : leftAppBarButtonInset), progress),
         right: calculateValue(data.expandedPadding, data.collapsedPadding + (data.collapsedAlignment == ProAlignment.center ? max(leftAppBarButtonInset, rightBarButtonInset) : leftAppBarButtonInset), progress)
       ),
@@ -48,7 +48,9 @@ class ProDynamicImageTitleWidget extends StatelessWidget {
                   color: calculateColor(data.expandedColor, data.collapsedColor, progress)
                 )
               )
-            )
+            ),
+            if (data.friendsWidget != null) const SizedBox(width: 24.0),
+            if (data.friendsWidget != null) data.friendsWidget!
           ]
         )
       )

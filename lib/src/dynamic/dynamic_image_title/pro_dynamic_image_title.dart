@@ -30,7 +30,9 @@ class ProDynamicImageTitle extends ProDynamic {
     this.collapsedColor = Colors.black,
     this.expandedFontWeight = FontWeight.w600,
     this.collapsedFontWeight = FontWeight.w600,
-    this.showImageOnlyWhenCollapsed = false
+    this.showImageOnlyWhenCollapsed = false,
+
+    this.friendsWidget
   }) : super(key: key);
 
   final String title;
@@ -51,6 +53,7 @@ class ProDynamicImageTitle extends ProDynamic {
   final Color expandedColor;
   final Color collapsedColor;
   final bool showImageOnlyWhenCollapsed;
+  final Widget? friendsWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +67,6 @@ class ProDynamicImageTitle extends ProDynamic {
 
   @override 
   double getHeight(double progress) {
-    return calculateValue(expandedPaddingToBottom, (kToolbarHeight - max(collapsedFontSize, collapsedImageSize)) / 2.0, progress) + calculateValue(showImageOnlyWhenCollapsed ? expandedFontSize : max(expandedFontSize, expandedImageSize), max(collapsedFontSize, collapsedImageSize), progress);
+    return calculateValue(friendsWidget != null ? 24.0 - ((kToolbarHeight - 10.0) - expandedFontSize) / 2.0 : 24.0, friendsWidget != null ? 5.0 : (kToolbarHeight - max(collapsedFontSize, collapsedImageSize)) / 2.0, progress) + calculateValue(friendsWidget != null ? (kToolbarHeight - 10.0) : showImageOnlyWhenCollapsed ? expandedFontSize : max(expandedFontSize, expandedImageSize), friendsWidget != null ? (kToolbarHeight - 10.0) : max(collapsedFontSize, collapsedImageSize), progress);
   }
 }
